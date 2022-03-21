@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <title>your localhost</title>
+
+        <link rel="stylesheet" href="/styles/main.css">
+
+    </head>
+
+    <body>
+
+            <hr class="horizontalDivider horizontalDivider--upper">
+            
+            <div class="container">
+
+                <div class="monthDisplay">
+
+                    <div class="monthDisplay__name"></div>
+
+                    <div>
+                        <button class="monthDisplay__btn monthDisplay__btn--back">Previous</button>
+                        <button class="monthDisplay__btn monthDisplay__btn--next">Next</button>
+                    </div>
+
+                </div>
+
+                <div class="weekdays">
+
+                    <div class="weekdays__elem">Monday</div>
+                    <div class="weekdays__elem">Tuesday</div>
+                    <div class="weekdays__elem">Wednesday</div>
+                    <div class="weekdays__elem">Thursday</div>
+                    <div class="weekdays__elem">Friday</div>
+                    <div class="weekdays__elem">Saturday</div>
+                    <div class="weekdays__elem">Sunday</div>
+
+                </div>
+
+                <div class="calendar">
+
+                </div>
+
+            </div>
+
+            <div class="eventSection">
+
+                <div class="eventSection__newEventContainer newEventContainer">
+
+                    <h2 class="windowTitle windowTitle--newEvent">New event</h2>
+
+                    <input type="text" class="newEventContainer__input" placeholder="Event title">
+
+                    <button class="newEventContainer__button newEventContainer__button--save">Save</button>
+                    <button class="newEventContainer__button newEventContainer__button--cancel">Cancel</button>
+
+                </div>
+
+                <div class="eventSection__deleteEventContainer deleteEventContainer">
+
+                    <h2 class="windowTitle windowTitle--deleteEvent">Existing event</h2>
+
+                    <p class="deleteEventContainer__text"></p>
+
+                    <button class="deleteEventContainer__button deleteEventContainer__button--delete">Delete</button>
+                    <button class="deleteEventContainer__button deleteEventContainer__button--cancel">Cancel</button>
+
+                </div>
+
+            </div>
+
+            <hr class="horizontalDivider horizontalDivider--lower">
+
+            <script src="scripts/script.js"></script>
+
+    </body>
+
+</html>

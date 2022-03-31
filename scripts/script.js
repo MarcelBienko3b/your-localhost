@@ -37,35 +37,26 @@ function openDayWindow(date) {
         for (let i = 0; i < events_for_day.length; i++) {
 
             const clonedEventContainer = document.createElement('div');
-            const clonedContainerTitle = document.createElement('h2');
             const clonedContainerText = document.createElement('p');
             const clonedContainerBtnDel = document.createElement('button');
-            const clonedContainerBtnCancel = document.createElement('button');
 
             //* content of cloned container
             clonedEventContainer.classList.add('eventSection__deleteEventContainer');
             clonedEventContainer.classList.add('deleteEventContainer');
-            clonedEventContainer.append(clonedContainerTitle, clonedContainerText, clonedContainerBtnDel, clonedContainerBtnCancel);
-
-            //* content of title
-            clonedContainerTitle.classList.add('windowTitle');
-            clonedContainerTitle.classList.add('windowTitle--deleteEvent');
-            clonedContainerTitle.innerText = 'Existing event';
+            clonedEventContainer.append(clonedContainerText, clonedContainerBtnDel);
 
             //* content of text
             clonedContainerText.classList.add('deleteEventContainer__text');
             clonedContainerText.innerText = events_for_day[i].title;
 
-            //* content of buttons
+            //* content of button
             clonedContainerBtnDel.classList.add('deleteEventContainer__button');
             clonedContainerBtnDel.classList.add('deleteEventContainer__button--delete');
+            clonedContainerBtnDel.setAttribute('id', `${i}`);
             clonedContainerBtnDel.innerText = 'Delete';
-            clonedContainerBtnCancel.classList.add('deleteEventContainer__button');
-            clonedContainerBtnCancel.classList.add('deleteEventContainer__button--cancel');
-            clonedContainerBtnCancel.innerText = 'Cancel';
 
             eventSection.appendChild(clonedEventContainer);
-            clonedEventContainer.style.display = 'block';
+            clonedEventContainer.style.display = 'flex';
 
         }
 
@@ -76,6 +67,8 @@ function openDayWindow(date) {
         newEventContainer.style.display = 'block';
 
     }
+
+    initiateButtons();
 
 }
 
@@ -179,6 +172,7 @@ function saveEvent() {
         eventTitleInput.classList.remove('error');
 
         events.push({
+            id: events.length,
             date: clicked,
             title: eventTitleInput.value
         });
@@ -187,7 +181,8 @@ function saveEvent() {
 
         closeNewEventWindow();
         loadCalendar();
-        removeChildWindows();
+        sortEvents();
+        removeAllChildWindows();
 
     } else {
 
@@ -197,11 +192,13 @@ function saveEvent() {
 
 };
 
-function deleteEvent() {
-    events = events.filter(e => e.date !== clicked);
+function deleteEvent(index) {
+    let delE = events.filter(e => e.date === clicked).splice(index, 1);
+    events = events.filter(e => e.id !== delE[0].id);
     localStorage.setItem('events', JSON.stringify(events));
     closeNewEventWindow();
     loadCalendar();
+    sortEvents();
     console.log('Successfully deleted');
 }
 
@@ -214,6 +211,38 @@ function removeAllChildWindows() {
 function removeChildWindows() {
     while (eventSection.children.length > 2) {
         eventSection.removeChild(eventSection.lastChild);
+    }
+}
+function sortEvents() {
+    for (let j = 0; j < events.length; j++) {
+        for (let i = 0; i < events.length - 1; i++) {
+            let splitFirst = events[i].date.split('.');
+            let splitSecond = events[i+1].date.split('.');
+
+            if (parseInt(splitFirst[2]) > parseInt(splitSecond[2])) {
+                temp = events[i];
+                events[i] = events[i+1];
+                events[i+1] = temp;
+            }
+
+            if (parseInt(splitFirst[2]) === parseInt(splitSecond[2])) {
+
+                if (parseInt(splitFirst[1]) > parseInt(splitSecond[1])) {
+                    temp = events[i];
+                    events[i] = events[i+1];
+                    events[i+1] = temp;
+                }
+
+                if (parseInt(splitFirst[1]) === parseInt(splitSecond[1])) {
+
+                    if (parseInt(splitFirst[0]) > parseInt(splitSecond[0])) {
+                       temp = events[i];
+                       events[i] = events[i+1];
+                       events[i+1] = temp;
+                    }
+               }
+            }
+        }
     }
 }
 
@@ -242,25 +271,23 @@ function initiateButtons() {
     document.querySelector('.newEventContainer__button--cancel').addEventListener('click', () => {
 
         closeNewEventWindow();
-        removeChildWindows();
-    });
-
-    document.querySelector('.deleteEventContainer__button--delete').addEventListener('click', () => {
-
-        deleteEvent();
-        removeChildWindows();
+        removeAllChildWindows();
 
     });
 
-    document.querySelector('.deleteEventContainer__button--cancel').addEventListener('click', () => {
+    const delButtons = document.querySelectorAll('.deleteEventContainer__button--delete');
+    console.log(delButtons);
 
-        closeNewEventWindow();
-        removeChildWindows();
+    for (let i = 1; i < delButtons.length; i++) {
 
-    })
+        delButtons[i].addEventListener('click', () => {
+            deleteEvent(i-1);
+            removeChildWindows();
+        });
 
+    };
 
 }
 
-initiateButtons();
 loadCalendar();
+initiateButtons();

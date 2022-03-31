@@ -169,6 +169,11 @@ function closeNewEventWindow() {
     eventTitleInput.value = '';
     clicked = null;
 
+    let temp = document.querySelectorAll('.day--clicked');
+    for (let i = 0; i < temp.length; i++) {
+        temp[0].classList.remove('day--clicked');
+    }
+
 };
 
 function saveEvent() {
@@ -189,6 +194,11 @@ function saveEvent() {
         loadCalendar();
         sortEvents();
         removeAllChildWindows();
+
+        let temp = document.querySelectorAll('.day--clicked');
+        for (let i = 0; i < temp.length; i++) {
+            temp[0].classList.remove('day--clicked');
+        }
 
     } else {
 

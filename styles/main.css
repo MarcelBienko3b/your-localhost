@@ -97,8 +97,11 @@ body .container .calendar__day--padding {
   background-color: #FFFCFF00 !important;
   box-shadow: none !important;
 }
-body .container .calendar .day__current {
+body .container .calendar .day--current {
   background-color: #75e3e7;
+}
+body .container .calendar .day--clicked {
+  background-color: red;
 }
 
 .eventSection {

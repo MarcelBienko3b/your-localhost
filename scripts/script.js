@@ -14,7 +14,6 @@ function openDayWindow(date) {
     clicked = date;
 
     let count = 0;
-
     let events_for_day = [];
 
     for (let i = 0; i < events.length; i++) {
@@ -29,10 +28,10 @@ function openDayWindow(date) {
         removeAllChildWindows();
     }
 
+    document.querySelector('.windowTitle--newEvent').innerText = clicked;
+
 
     if (count > 0) {
-
-        const event_for_day = events.find(event => event.date === clicked);
 
         for (let i = 0; i < events_for_day.length; i++) {
 
@@ -52,7 +51,7 @@ function openDayWindow(date) {
             //* content of button
             clonedContainerBtnDel.classList.add('deleteEventContainer__button');
             clonedContainerBtnDel.classList.add('deleteEventContainer__button--delete');
-            clonedContainerBtnDel.setAttribute('id', `${i}`);
+            clonedContainerBtnDel.setAttribute('id', `${events.filter(e => e.date === clicked)[i].id}`);
             clonedContainerBtnDel.innerText = 'Delete';
 
             eventSection.appendChild(clonedEventContainer);
@@ -115,7 +114,7 @@ function loadCalendar() {
             day_container.innerText = i - padding_days;
 
             if (i - padding_days === day && nav === 0) {
-                day_container.classList.add('day__current');
+                day_container.classList.add('day--current');
             }
 
             //const event_for_day = events.find(e => e.date === day_str);
@@ -141,7 +140,14 @@ function loadCalendar() {
             }
                 
 
-            day_container.addEventListener('click', () => openDayWindow(day_str));
+            day_container.addEventListener('click', () => {
+                openDayWindow(day_str);
+                let temp = document.querySelectorAll('.day--clicked');
+                for (let i = 0; i < temp.length; i++) {
+                    temp[0].classList.remove('day--clicked');
+                }
+                day_container.classList.add('day--clicked');
+            });
 
         } else {
 
@@ -192,14 +198,13 @@ function saveEvent() {
 
 };
 
-function deleteEvent(index) {
-    let delE = events.filter(e => e.date === clicked).splice(index, 1);
-    events = events.filter(e => e.id !== delE[0].id);
+function deleteEvent(idBtn) {
+    events = events.filter(e => e.id !== idBtn);
     localStorage.setItem('events', JSON.stringify(events));
-    closeNewEventWindow();
     loadCalendar();
     sortEvents();
-    console.log('Successfully deleted');
+    removeAllChildWindows();
+    closeNewEventWindow();
 }
 
 function removeAllChildWindows() {
@@ -213,6 +218,7 @@ function removeChildWindows() {
         eventSection.removeChild(eventSection.lastChild);
     }
 }
+
 function sortEvents() {
     for (let j = 0; j < events.length; j++) {
         for (let i = 0; i < events.length - 1; i++) {
@@ -275,17 +281,14 @@ function initiateButtons() {
 
     });
 
-    const delButtons = document.querySelectorAll('.deleteEventContainer__button--delete');
-    console.log(delButtons);
+    let delEv = events.filter(e => e.date === clicked);
 
-    for (let i = 1; i < delButtons.length; i++) {
-
-        delButtons[i].addEventListener('click', () => {
-            deleteEvent(i-1);
-            removeChildWindows();
-        });
-
-    };
+    if (delEv.length > 0) {
+        for (let i = 0; i <= delEv.length; i++) {
+            let tempBtn = document.querySelectorAll('.deleteEventContainer__button--delete')[i];
+            tempBtn.addEventListener('click', () => deleteEvent(parseInt(tempBtn.id)));
+        }
+    }
 
 }
 

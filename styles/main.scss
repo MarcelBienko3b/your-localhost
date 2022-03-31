@@ -110,10 +110,16 @@ body {
                     background-color: #FFFCFF00 !important;
                     box-shadow: none !important;
                 }
+
             }
 
-            .day__current {
-              background-color: rgb(117, 227, 231);
+            .day{
+              &--current {
+                background-color: rgb(117, 227, 231);
+              }
+              &--clicked {
+                background-color: red;
+              }
             }
         }
     }

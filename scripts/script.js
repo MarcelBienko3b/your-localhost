@@ -55,7 +55,7 @@ function openDayWindow(date) {
             clonedContainerBtnDel.innerText = 'Delete';
 
             eventSection.appendChild(clonedEventContainer);
-            clonedEventContainer.style.display = 'flex';
+            clonedEventContainer.style.display = 'grid';
 
         }
 

@@ -142,8 +142,8 @@ body {
                 margin: 5px;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: space-evenly;
-                transition: all 0.5s;
+                justify-content: space-around;
+                transition: all 0.2s;
     
                 &:not(.calendar__day--padding):hover {
 
@@ -164,13 +164,7 @@ body {
 
               &--current {
 
-                box-shadow: 3px 3px $main-active-clr;
-
-              }
-
-              &--clicked {
-
-                background-color: red;
+                box-shadow: 0 0 0 3px $main-active-clr;
 
               }
               

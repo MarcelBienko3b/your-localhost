@@ -121,8 +121,6 @@ function loadCalendar() {
                 day_container.classList.add('day--current');
             }
 
-            //const event_for_day = events.find(e => e.date === day_str);
-
             let count = events.filter(e => e.date === day_str).length;
 
             if (count !== 0){
@@ -152,11 +150,6 @@ function loadCalendar() {
 
             day_container.addEventListener('click', () => {
                 openDayWindow(day_str);
-                let temp = document.querySelectorAll('.day--clicked');
-                for (let i = 0; i < temp.length; i++) {
-                    temp[0].classList.remove('day--clicked');
-                }
-                day_container.classList.add('day--clicked');
             });
 
         } else {
@@ -179,11 +172,6 @@ function closeNewEventWindow() {
     eventTitleInput.value = '';
     clicked = null;
 
-    let temp = document.querySelectorAll('.day--clicked');
-    for (let i = 0; i < temp.length; i++) {
-        temp[0].classList.remove('day--clicked');
-    }
-
 };
 
 function saveEvent() {
@@ -204,11 +192,6 @@ function saveEvent() {
         loadCalendar();
         sortEvents();
         removeAllChildWindows();
-
-        let temp = document.querySelectorAll('.day--clicked');
-        for (let i = 0; i < temp.length; i++) {
-            temp[0].classList.remove('day--clicked');
-        }
 
     } else {
 

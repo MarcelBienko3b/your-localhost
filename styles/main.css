@@ -86,8 +86,8 @@ body .container .calendar__day {
   margin: 5px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  transition: all 0.5s;
+  justify-content: space-around;
+  transition: all 0.2s;
 }
 body .container .calendar__day:not(.calendar__day--padding):hover {
   box-shadow: 3px 3px #FF5F5F;
@@ -97,10 +97,7 @@ body .container .calendar__day--padding {
   box-shadow: none !important;
 }
 body .container .calendar .day--current {
-  box-shadow: 3px 3px #D4E1FF;
-}
-body .container .calendar .day--clicked {
-  background-color: red;
+  box-shadow: 0 0 0 3px #D4E1FF;
 }
 body .container .calendar .day__num {
   flex-basis: 100%;

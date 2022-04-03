@@ -107,11 +107,15 @@ function loadCalendar() {
         day_container.classList.add('calendar__day');
         day_container.classList.add('day');
 
+        const day_num = document.createElement('div');
+        day_num.classList.add('day__num');
+        day_container.appendChild(day_num);
+
         const day_str = `${i - padding_days}.${month}.${year}`;
 
         if (i > padding_days) {
 
-            day_container.innerText = i - padding_days;
+            day_num.innerText = i - padding_days;
 
             if (i - padding_days === day && nav === 0) {
                 day_container.classList.add('day--current');
@@ -123,18 +127,24 @@ function loadCalendar() {
 
             if (count !== 0){
 
-                if (count === 1) {
-                    const event_div = document.createElement('div');
-                    event_div.classList.add('day__eventContainer');
-                    event_div.innerText = count+' event';
-                    day_container.appendChild(event_div);
+                if (count <= 9) {
+
+                    for (let i = 0; i < count; i++) {
+                        const event_indicator = document.createElement('div');
+                        day_container.appendChild(event_indicator);
+                        event_indicator.classList.add('day__eventIndicator');
+                    }
+
                 }
 
-                if (count > 1) {
-                    const event_div = document.createElement('div');
-                    event_div.classList.add('day__eventContainer');
-                    event_div.innerText = count+' events';
-                    day_container.appendChild(event_div);
+                else {
+
+                    const event_indicator = document.createElement('div');
+                    day_container.appendChild(event_indicator);
+                    event_indicator.classList.add('day__eventIndicator');
+                    event_indicator.classList.add('day__eventIndicator--plus');
+                    event_indicator.innerText = '9+';
+
                 }
 
             }

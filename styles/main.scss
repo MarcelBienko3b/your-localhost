@@ -416,6 +416,7 @@ body {
 
       .modal {
 
+        display: none;
         width: 450px;
         position: fixed;
         top: -50%;
@@ -483,7 +484,8 @@ body {
 
         &.active {
 
-          top: 8%;
+          display: block;
+          top: 20%;
 
         }
 

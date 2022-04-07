@@ -265,6 +265,7 @@ body .todoContainer .todo__close:hover {
   color: #FF5F5F;
 }
 body .todoContainer .modal {
+  display: none;
   width: 450px;
   position: fixed;
   top: -50%;
@@ -313,7 +314,8 @@ body .todoContainer .modal__close:hover {
   text-shadow: 0 0 2px #212940;
 }
 body .todoContainer .modal.active {
-  top: 8%;
+  display: block;
+  top: 20%;
 }
 
 @media only screen and (min-width: 1820px) {

@@ -42,21 +42,26 @@ body .container {
 body .container .monthDisplay {
   padding: 10px;
   margin: auto;
-  color: #d36c6c;
+  color: #FF5F5F;
   font-size: 26px;
   display: flex;
   justify-content: space-between;
 }
 body .container .monthDisplay__btn {
-  background-color: #92a1d1;
+  background-color: #FF5F5F;
+  color: #212940;
   width: 75px;
   cursor: pointer;
-  box-shadow: 0px 0px 2px gray;
   border: none;
   outline: none;
   padding: 5px;
   border-radius: 5px;
-  color: white;
+  transition: all 0.2s;
+}
+body .container .monthDisplay__btn:hover {
+  background-color: #212940;
+  color: #FF5F5F;
+  box-shadow: 2px 2px #FF5F5F;
 }
 body .container .weekdays {
   width: 100%;
@@ -241,25 +246,27 @@ body .todoContainer .status__btn {
 body .todoContainer .status__btn:hover {
   background-color: #212940;
   color: #FF5F5F;
-  border: 2px solid #FF5F5F;
+  box-shadow: 2px 2px #FF5F5F;
 }
 body .todoContainer .todo {
   background-color: #212940;
   color: #fff;
   border-radius: 5px;
   font-size: 20px;
-  padding: 10px 0;
+  padding: 10px;
   width: 80%;
-  margin: auto;
+  margin: 10px auto;
   display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 body .todoContainer .todo__close {
-  flex-basis: 20%;
-  align-self: center;
+  position: relative;
   font-size: 2rem;
-  padding: 0 5px;
   color: #8090BF;
   cursor: pointer;
+  margin: auto 0;
+  padding: 0 0 0 20px;
 }
 body .todoContainer .todo__close:hover {
   color: #FF5F5F;
@@ -301,6 +308,16 @@ body .todoContainer .modal__submit {
   width: 20%;
   border-radius: 5px;
   padding: 8px;
+  background-color: #212940;
+  color: #FF5F5F;
+  border: none;
+  transition: all 0.2s;
+}
+body .todoContainer .modal__submit:hover {
+  background-color: #FF5F5F;
+  color: #212940;
+  box-shadow: 2px 2px #212940;
+  cursor: pointer;
 }
 body .todoContainer .modal__close {
   background: none;

@@ -83,22 +83,30 @@ body {
 
             padding: 10px;
             margin: auto;
-            color: #d36c6c;
+            color: $tetriary-accent-clr;
             font-size: 26px;
             display: flex;
             justify-content: space-between;
 
             &__btn {
 
-                background-color:#92a1d1;
+                background-color: $tetriary-accent-clr;
+                color: $main-bckg-clr;
                 width: 75px;
                 cursor: pointer;
-                box-shadow: 0px 0px 2px gray;
                 border: none;
                 outline: none;
                 padding: 5px;
                 border-radius: 5px;
-                color: white;
+                transition: all 0.2s;
+
+                &:hover {
+
+                  background-color: $main-bckg-clr;
+                  color: $tetriary-accent-clr;
+                  box-shadow: 2px 2px $tetriary-accent-clr;
+
+                }
 
             }
 
@@ -376,7 +384,7 @@ body {
 
             background-color: $main-bckg-clr;
             color: $tetriary-accent-clr;
-            border: 2px solid $tetriary-accent-clr;
+            box-shadow: 2px 2px $tetriary-accent-clr;
 
           }
 
@@ -390,21 +398,24 @@ body {
         color: $secondary-font-clr;
         border-radius: 5px;
         font-size: 20px;
-        padding: 10px 0;
+        padding: 10px;
         width: 80%;
-        margin: auto;
+        margin: 10px auto;
 
         display: flex;
+        justify-content: space-between;
+        text-align: center;
+
 
         &__close {
 
-          flex-basis: 20%;
-          align-self: center;
+          position: relative;
           font-size: 2rem;
-          padding: 0 5px;
 
           color: $secondary-bckg-clr;
           cursor: pointer;
+          margin: auto 0;
+          padding: 0 0 0 20px;
 
           &:hover {
             color: $tetriary-accent-clr;
@@ -462,6 +473,20 @@ body {
           width: 20%;
           border-radius: 5px;
           padding: 8px;
+
+          background-color: $main-bckg-clr;
+          color: $tetriary-accent-clr;
+          border: none;
+          transition: all 0.2s;
+
+          &:hover {
+
+            background-color: $tetriary-accent-clr;
+            color: $main-bckg-clr;
+            box-shadow: 2px 2px $main-bckg-clr;
+            cursor: pointer;
+
+          }
 
         }
 

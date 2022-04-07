@@ -349,13 +349,48 @@ close_modals.forEach((btn) => {
 
 });
 
-window.onclick = (event) => {
-    
-    if (event.target == overlay) {
+const submit = document.querySelector('.modal__submit');
+const no_status = document.querySelector('.todoContainer__status--noStatus');
 
-        const modals = document.querySelectorAll('.modal');
-        modals.forEach((modal) => modal.classList.remove('active'));
+submit.addEventListener('click', createTodo);
 
-    };
+function createTodo() {
+
+    const todo_div = document.createElement('div');
+    const input_value = document.querySelector('.modal__input').value;
+    const text = document.createTextNode(input_value);
+
+    todo_div.appendChild(text);
+    todo_div.classList.add('status__todo');
+    todo_div.classList.add('todo');
+    todo_div.setAttribute('draggable', 'true');
+
+    const span = document.createElement('span');
+    const span_text = document.createTextNode('\u00D7');
+    span.classList.add('todo__close');
+    span.appendChild(span_text);
+
+    todo_div.appendChild(span);
+
+    no_status.appendChild(todo_div);
+
+    todo_form.classList.remove('active');
+
+    todo_div.addEventListener('dragstart', dragStart);
+    todo_div.addEventListener('dragend', dragEnd);
+
+    document.querySelector('.modal__input').innerText = '';
 
 };
+
+const close_btns = document.querySelectorAll('.todo__close');
+
+close_btns.forEach((btn) => {
+
+    btn.addEventListener('click', () => {
+
+        btn.parentElement.style.display = 'none';
+
+    });
+
+});

@@ -77,7 +77,73 @@
 
             <hr class="horizontalDivider horizontalDivider--lower">
 
+            <div class="todoContainer">
+
+                <div class="modal" id="todo_form">
+
+                    <div class="modal__header">
+
+                        <div class="modal__title">New ToDo</div>
+                        <button class="modal__close">&times;</button>
+
+                    </div>
+
+                    <div class="modal__body">
+                        <input type="text" class="modal__input">
+                        <input type="submit" value="Add Todo" class="modal__submit">
+                    </div>
+
+                </div>
+
+                <div class="todoContainer__status todoContainer__status--noStatus status">
+
+                    <h2 class="status__title">no status</h1>
+                    <button class="status__btn" data-target="#todo_form">+ Add Todo</button>
+
+                    <div class="status__todo todo" draggable="true">
+                        Buy a pizza and make some good launch to eat while watching tv
+                        <span class="todo__close">&times;</span>
+                    </div>
+
+                </div>
+
+                <div class="todoContainer__status todoContainer__status--notStarted status">
+
+                    <h2 class="status__title">not started</h1>
+
+                </div>
+
+                <div class="todoContainer__status todoContainer__status--inProgress status">
+
+                    <h2 class="status__title">in progress</h1>
+
+                </div>
+
+                <div class="todoContainer__status todoContainer__status--completed status">
+
+                    <h2 class="status__title">completed</h1>
+
+                </div>
+
+            </div>
+
             <script src="scripts/script.js"></script>
+
+            <footer class="footer">
+
+                <div>
+                    <img src="" alt="website logo" class="logo logo--footer">
+                </div>
+
+                <div>
+                    &copy; Marcel Bieńko 2022
+                </div>
+
+                <div class="footer__socials socials">
+                    <a class="socials__github" href="http://github.com/marcelbienko3b">Github</a>
+                </div>
+
+            </footer>
 
     </body>
 

@@ -125,25 +125,10 @@ function loadCalendar() {
 
             if (count !== 0){
 
-                if (count <= 9) {
-
-                    for (let i = 0; i < count; i++) {
-                        const event_indicator = document.createElement('div');
-                        day_container.appendChild(event_indicator);
-                        event_indicator.classList.add('day__eventIndicator');
-                    }
-
-                }
-
-                else {
-
-                    const event_indicator = document.createElement('div');
-                    day_container.appendChild(event_indicator);
-                    event_indicator.classList.add('day__eventIndicator');
-                    event_indicator.classList.add('day__eventIndicator--plus');
-                    event_indicator.innerText = '9+';
-
-                }
+                const event_indicator = document.createElement('div');
+                day_container.appendChild(event_indicator);
+                event_indicator.classList.add('day__eventIndicator');
+                event_indicator.innerText = count;
 
             }
                 
@@ -297,3 +282,80 @@ function initiateButtons() {
 
 loadCalendar();
 initiateButtons();
+
+const todos = document.querySelectorAll('.todo');
+const allStatus = document.querySelectorAll('.status');
+let draggableTodo = null;
+
+todos.forEach((todo) => {
+
+    todo.addEventListener('dragstart', dragStart);
+    todo.addEventListener('dragend', dragEnd);
+
+});
+
+function dragStart() {
+    
+    draggableTodo = this;
+
+};
+
+function dragEnd() {
+
+    draggableTodo = null;
+
+};
+
+allStatus.forEach((status) => {
+
+    status.addEventListener('dragover', dragOver);
+    status.addEventListener('drop', dragDrop);
+
+});
+
+function dragOver(e) {
+
+    e.preventDefault();
+
+};
+
+function dragDrop() {
+
+    this.appendChild(draggableTodo);
+
+}
+
+const btns = document.querySelectorAll('[data-target]');
+const close_modals = document.querySelectorAll('.modal__close');
+
+btns.forEach((btn) => {
+
+    btn.addEventListener('click', () => {
+
+        document.querySelector(btn.dataset.target).classList.add("active");
+
+    });
+
+});
+
+close_modals.forEach((btn) => {
+
+    btn.addEventListener('click', () => {
+
+        const modal = btn.closest('.modal');
+        modal.classList.remove('active');
+
+    });
+
+});
+
+window.onclick = (event) => {
+    
+    if (event.target == overlay) {
+
+        const modals = document.querySelectorAll('.modal');
+        modals.forEach((modal) => modal.classList.remove('active'));
+
+    };
+
+};

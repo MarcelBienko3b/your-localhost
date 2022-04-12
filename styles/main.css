@@ -424,9 +424,4 @@ body .footer__socials .socials__link:hover {
   .horizontalDivider--lower {
     display: none;
   }
-}
-@media only screen and (max-width: 1024px) {
-  .logoImg {
-    display: none;
-  }
 }/*# sourceMappingURL=main.css.map */

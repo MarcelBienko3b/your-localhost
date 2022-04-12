@@ -240,7 +240,7 @@ function sortEvents() {
     }
 }
 
-function initiateButtons() {
+function initiateNavButtons() {
 
     document.querySelector('.monthDisplay__btn--next').addEventListener('click', () => {
 
@@ -255,6 +255,10 @@ function initiateButtons() {
         loadCalendar();
 
     });
+
+};
+
+function initiateButtons() {
 
     document.querySelector('.newEventContainer__button--save').addEventListener('click', () => {
 
@@ -276,12 +280,12 @@ function initiateButtons() {
             let tempBtn = document.querySelectorAll('.deleteEventContainer__button--delete')[i];
             tempBtn.addEventListener('click', () => deleteEvent(parseInt(tempBtn.id)));
         }
-    }
+    };
 
-}
+};
 
 loadCalendar();
-initiateButtons();
+initiateNavButtons();
 
 const todos = document.querySelectorAll('.todo');
 const allStatus = document.querySelectorAll('.status');

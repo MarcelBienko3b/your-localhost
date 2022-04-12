@@ -1,5 +1,6 @@
 $main-bckg-clr: #212940;
 $secondary-bckg-clr: #8090BF;
+$secondary-bckg-clr--opacity: #8090BF90;
 
 $main-accent-clr: #BF264F;
 $secondary-accent-clr: #212940;
@@ -18,9 +19,13 @@ $secondary-font-clr: #fff;
 
 $main-font: 'Nunito';
 
-body {
+html {
 
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
+
+}
+
+body {
 
     margin: 0;
     padding: 0;
@@ -51,7 +56,7 @@ body {
 
     .horizontalDivider {
 
-      margin-top: 40px;
+      margin-top: 80px;
       width: 90%;
       height: 2px;
       grid-area: hr;
@@ -69,6 +74,53 @@ body {
 
         flex-basis: 80%;
 
+      }
+
+    }
+
+    .navbar {
+
+      position: fixed;
+      width: 100%;
+      height: 70px;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      background-color: $secondary-bckg-clr--opacity;
+
+      &__logo {
+
+        width: 60px;
+        height: 48px;
+        padding: 3px;
+  
+      }
+
+      &__nav {
+
+        display: block;
+        background-color: $main-bckg-clr;
+        flex-basis: 20%;
+        text-align: center;
+        letter-spacing: 6px;
+        padding: 10px;
+        text-decoration: none;
+        color: $tetriary-accent-clr;
+        border-radius: 10px;
+        transition: all 0.2s;
+
+        &:hover {
+
+          background-color: $tetriary-accent-clr;
+          color: $main-bckg-clr;
+          box-shadow: 4px 4px $main-bckg-clr;
+
+        }
+      
       }
 
     }
@@ -518,6 +570,65 @@ body {
 
     }
 
+    .footer {
+
+      background-color: $secondary-bckg-clr--opacity;
+      width: 100%;
+      height: 80px;
+      display: flex;
+      margin: 20px;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      border-radius: 10px;
+
+      &__logo {
+
+        flex-basis: 33%;
+
+      }
+      
+      &__img {
+
+        width: 60px;
+        height: 48px;
+
+      }
+
+      &__copyright {
+
+        flex-basis: 33%;
+
+      }
+
+      &__socials {
+
+        flex-basis: 33%;
+
+        & img {
+
+          height: 22px;
+
+        }
+        
+        .socials__link {
+
+          text-decoration: none;
+          color: $main-font-clr;
+          transition: all 0.2s;
+
+          &:hover {
+
+            color: $tetriary-accent-clr;
+
+          }
+
+        }
+
+      }
+
+    }
+
 }
 
 @media only screen and (min-width: 1820px) {
@@ -548,6 +659,16 @@ body {
 
     display: none;
 
+  }
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+  .logoImg {
+
+    display: none;
+  
   }
 
 }

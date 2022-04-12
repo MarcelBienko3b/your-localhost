@@ -12,13 +12,38 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,400;0,600;1,200;1,400;1,600&display=swap" rel="stylesheet">
 
+        <link rel="icon" href="img/logo.png">
+
     </head>
 
     <body>
+        
+            <div id="top"></div>
 
+            <div class="navbar">
+
+                <a href=index.html class="navbar__link">
+                    <img class="navbar__logo" src="img/logo.png" alt="website logo">
+                </a>
+
+                <a href="#top" class="navbar__nav">
+                    Calendar
+                </a>
+
+                <a href="#todo" class="navbar__nav">
+                    To Do
+                </a>
+
+                <a href="#footer" class="navbar__nav">
+                    About
+                </a>
+
+            </div>
+                
+            
             <hr class="horizontalDivider horizontalDivider--upper">
 
-            <div class="container">
+            <div class="container" id="calendar">
 
                 <div class="monthDisplay">
 
@@ -77,7 +102,7 @@
 
             <hr class="horizontalDivider horizontalDivider--lower">
 
-            <div class="todoContainer">
+            <div class="todoContainer" id="todo">
 
                 <div class="modal" id="todo_form">
 
@@ -127,23 +152,23 @@
 
             </div>
 
-            <script src="scripts/script.js"></script>
+            <footer class="footer" id="footer">
 
-            <footer class="footer">
-
-                <div>
-                    <img src="" alt="website logo" class="logo logo--footer">
+                <div class="footer__logo">
+                    <img src="img/logo.png" alt="website logo" class="footer__img">
                 </div>
 
-                <div>
+                <div class="footer__copyright">
                     &copy; Marcel Bieńko 2022
                 </div>
 
                 <div class="footer__socials socials">
-                    <a class="socials__github" href="http://github.com/marcelbienko3b">Github</a>
+                    <a class="socials__link" href="http://github.com/marcelbienko3b"><li>&nbsp;github.com/MarcelBienko3b</li></a>
                 </div>
 
             </footer>
+
+            <script src="scripts/script.js"></script>
 
     </body>
 

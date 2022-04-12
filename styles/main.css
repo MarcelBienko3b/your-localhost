@@ -1,5 +1,8 @@
-body {
+html {
   scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -21,7 +24,7 @@ body ::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 body .horizontalDivider {
-  margin-top: 40px;
+  margin-top: 80px;
   width: 90%;
   height: 2px;
   grid-area: hr;
@@ -33,6 +36,40 @@ body .horizontalDivider--upper {
 }
 body .horizontalDivider--lower {
   flex-basis: 80%;
+}
+body .navbar {
+  position: fixed;
+  width: 100%;
+  height: 70px;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgba(128, 144, 191, 0.5647058824);
+}
+body .navbar__logo {
+  width: 60px;
+  height: 48px;
+  padding: 3px;
+}
+body .navbar__nav {
+  display: block;
+  background-color: #212940;
+  flex-basis: 20%;
+  text-align: center;
+  letter-spacing: 6px;
+  padding: 10px;
+  text-decoration: none;
+  color: #FF5F5F;
+  border-radius: 10px;
+  transition: all 0.2s;
+}
+body .navbar__nav:hover {
+  background-color: #FF5F5F;
+  color: #212940;
+  box-shadow: 4px 4px #212940;
 }
 body .container {
   flex-basis: 770px;
@@ -334,6 +371,41 @@ body .todoContainer .modal.active {
   display: block;
   top: 20%;
 }
+body .footer {
+  background-color: rgba(128, 144, 191, 0.5647058824);
+  width: 100%;
+  height: 80px;
+  display: flex;
+  margin: 20px;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+}
+body .footer__logo {
+  flex-basis: 33%;
+}
+body .footer__img {
+  width: 60px;
+  height: 48px;
+}
+body .footer__copyright {
+  flex-basis: 33%;
+}
+body .footer__socials {
+  flex-basis: 33%;
+}
+body .footer__socials img {
+  height: 22px;
+}
+body .footer__socials .socials__link {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.2s;
+}
+body .footer__socials .socials__link:hover {
+  color: #FF5F5F;
+}
 
 @media only screen and (min-width: 1820px) {
   .eventSection {
@@ -350,6 +422,11 @@ body .todoContainer .modal.active {
   }
 
   .horizontalDivider--lower {
+    display: none;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .logoImg {
     display: none;
   }
 }/*# sourceMappingURL=main.css.map */

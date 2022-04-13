@@ -47,11 +47,12 @@ body .navbar {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  font-weight: 600;
   background-color: rgba(128, 144, 191, 0.5647058824);
 }
 body .navbar__logo {
   width: 60px;
-  height: 48px;
+  height: 60px;
   padding: 3px;
 }
 body .navbar__nav {
@@ -387,7 +388,7 @@ body .footer__logo {
 }
 body .footer__img {
   width: 60px;
-  height: 48px;
+  height: 60px;
 }
 body .footer__copyright {
   flex-basis: 33%;

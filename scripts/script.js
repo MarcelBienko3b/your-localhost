@@ -1,6 +1,7 @@
 let nav = 0;
 let clicked = null;
 let events = localStorage.getItem('events') ? JSON.parse(localStorage.getItem('events')) : [];
+let todos_ls = localStorage.getItem('todos_ls') ? JSON.parse(localStorage.getItem('todos_ls')) : [];
 
 const calendar = document.querySelector('.calendar');
 const newEventContainer = document.querySelector('.newEventContainer');
@@ -165,8 +166,17 @@ function saveEvent() {
 
         eventTitleInput.classList.remove('error');
 
+        let idNewEvent = 0;
+
+        for (let i = 0; i < events.length - 1; i++) {
+            if (idNewEvent < parseInt(events[i].id)) {
+                idNewEvent = parseInt(events[i].id) + 1;
+            }
+        };
+
+        console.log(idNewEvent);
         events.push({
-            id: events.length,
+            id: idNewEvent,
             date: clicked,
             title: eventTitleInput.value
         });
@@ -326,6 +336,22 @@ function dragOver(e) {
 function dragDrop() {
 
     this.appendChild(draggableTodo);
+    let tempText = JSON.stringify(draggableTodo.innerText);
+    tempText = tempText.substring(1, tempText.length - 4);
+
+    let tempTodo = todos_ls.filter(todo => todo.text == tempText);
+    todos_ls = todos_ls.filter(todo => todo.text !== tempText);
+
+    tempTodo[0].status = this.classList[1];
+    
+    todos_ls.push({
+        id: tempTodo[0].id,
+        text: tempTodo[0].text,
+        status: tempTodo[0].status
+    });
+
+    console.log(todos_ls);
+    localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
 
 }
 
@@ -358,6 +384,39 @@ const no_status = document.querySelector('.todoContainer__status--noStatus');
 
 submit.addEventListener('click', createTodo);
 
+function loadTodos() {
+
+    for (let i = 0; i < todos_ls.length; i++) {
+
+        const todo_div = document.createElement('div');
+        const input_value = todos_ls[i].text;
+        const text = document.createTextNode(input_value);
+
+        todo_div.appendChild(text);
+        todo_div.classList.add('status__todo');
+        todo_div.classList.add('todo');
+        todo_div.setAttribute('draggable', 'true');
+
+        const span = document.createElement('span');
+        const span_text = document.createTextNode('\u00D7');
+        span.classList.add('todo__close');
+        span.appendChild(span_text);
+
+        todo_div.appendChild(span);
+
+        const appendStatus = document.querySelector(`.${todos_ls[i].status}`);
+
+        appendStatus.appendChild(todo_div);
+
+        todo_form.classList.remove('active');
+
+        todo_div.addEventListener('dragstart', dragStart);
+        todo_div.addEventListener('dragend', dragEnd);
+    
+    }
+
+};
+
 function createTodo() {
 
     const todo_div = document.createElement('div');
@@ -384,6 +443,26 @@ function createTodo() {
     todo_div.addEventListener('dragend', dragEnd);
 
     document.querySelector('.modal__input').innerText = '';
+    
+    if (input_value) {
+
+        let idNewTodo = 0;
+
+        for (let i = 0; i < todos_ls.length - 1; i++) {
+            if (idNewTodo < parseInt(todos_ls[i].id)) {
+                idNewTodo = parseInt(todos_ls[i].id) + 1;
+            }
+        };
+    
+        todos_ls.push({
+            id: idNewTodo,
+            text: input_value,
+            status: '.todoContainer__status--noStatus'
+        });
+    
+        localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
+    
+    };
 
 };
 
@@ -398,3 +477,5 @@ close_btns.forEach((btn) => {
     });
 
 });
+
+loadTodos();

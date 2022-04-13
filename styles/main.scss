@@ -89,13 +89,14 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-evenly;
+      font-weight: 600;
 
       background-color: $secondary-bckg-clr--opacity;
 
       &__logo {
 
         width: 60px;
-        height: 48px;
+        height: 60px;
         padding: 3px;
   
       }
@@ -591,7 +592,7 @@ body {
       &__img {
 
         width: 60px;
-        height: 48px;
+        height: 60px;
 
       }
 

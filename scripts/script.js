@@ -350,7 +350,6 @@ function dragDrop() {
         status: tempTodo[0].status
     });
 
-    console.log(todos_ls);
     localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
 
 }
@@ -415,6 +414,21 @@ function loadTodos() {
     
     }
 
+    const close_btns = document.querySelectorAll('.todo__close');
+
+    close_btns.forEach((btn) => {
+
+        btn.addEventListener('click', () => {
+
+            console.log(btn.parentElement)
+
+            
+            loadTodos();
+
+        })
+
+    });
+
 };
 
 function createTodo() {
@@ -422,6 +436,7 @@ function createTodo() {
     const todo_div = document.createElement('div');
     const input_value = document.querySelector('.modal__input').value;
     const text = document.createTextNode(input_value);
+
 
     todo_div.appendChild(text);
     todo_div.classList.add('status__todo');
@@ -465,17 +480,5 @@ function createTodo() {
     };
 
 };
-
-const close_btns = document.querySelectorAll('.todo__close');
-
-close_btns.forEach((btn) => {
-
-    btn.addEventListener('click', () => {
-
-        btn.parentElement.style.display = 'none';
-
-    });
-
-});
 
 loadTodos();

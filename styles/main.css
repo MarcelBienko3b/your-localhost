@@ -52,7 +52,6 @@ body .navbar {
 }
 body .navbar__logo {
   width: 60px;
-  height: 60px;
   padding: 3px;
 }
 body .navbar__nav {
@@ -388,7 +387,6 @@ body .footer__logo {
 }
 body .footer__img {
   width: 60px;
-  height: 60px;
 }
 body .footer__copyright {
   flex-basis: 33%;

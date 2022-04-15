@@ -40,16 +40,13 @@ function openDayWindow(date) {
             const clonedContainerText = document.createElement('p');
             const clonedContainerBtnDel = document.createElement('button');
 
-            //* content of cloned container
             clonedEventContainer.classList.add('eventSection__deleteEventContainer');
             clonedEventContainer.classList.add('deleteEventContainer');
             clonedEventContainer.append(clonedContainerText, clonedContainerBtnDel);
 
-            //* content of text
             clonedContainerText.classList.add('deleteEventContainer__text');
             clonedContainerText.innerText = events_for_day[i].title;
 
-            //* content of button
             clonedContainerBtnDel.classList.add('deleteEventContainer__button');
             clonedContainerBtnDel.classList.add('deleteEventContainer__button--delete');
             clonedContainerBtnDel.setAttribute('id', `${events.filter(e => e.date === clicked)[i].id}`);
@@ -168,12 +165,18 @@ function saveEvent() {
 
         let idNewEvent = 0;
 
-        for (let i = 0; i < events.length - 1; i++) {
-            if (idNewEvent < parseInt(events[i].id)) {
-                idNewEvent = parseInt(events[i].id) + 1;
-            }
-        };
+        if (events.length == 0) {
+            idNewEvent = 0;
+        } else {
 
+            for (let i = 0; i < events.length; i++) {
+                if (idNewEvent <= parseInt(events[i].id)) {
+                    idNewEvent = parseInt(events[i].id) + 1;
+                    }
+                };
+
+        };
+        
         console.log(idNewEvent);
         events.push({
             id: idNewEvent,
@@ -347,7 +350,7 @@ function dragDrop() {
     todos_ls.push({
         id: tempTodo[0].id,
         text: tempTodo[0].text,
-        status: tempTodo[0].status
+        status: `.${tempTodo[0].status}`
     });
 
     localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
@@ -403,8 +406,7 @@ function loadTodos() {
 
         todo_div.appendChild(span);
 
-        const appendStatus = document.querySelector(`.${todos_ls[i].status}`);
-
+        const appendStatus = document.querySelector(`${todos_ls[i].status}`);
         appendStatus.appendChild(todo_div);
 
         todo_form.classList.remove('active');
@@ -420,12 +422,18 @@ function loadTodos() {
 
         btn.addEventListener('click', () => {
 
-            console.log(btn.parentElement)
+            const todo_div = btn.parentElement;
 
+            let tempText = JSON.stringify(todo_div.innerText);
+            tempText = tempText.substring(1, tempText.length - 4);
             
-            loadTodos();
+            console.log(todos_ls)
+            todos_ls = todos_ls.filter((todo) => todo.text !== tempText);
+            console.log(todos_ls)
 
-        })
+            localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
+
+        });
 
     });
 
@@ -463,12 +471,16 @@ function createTodo() {
 
         let idNewTodo = 0;
 
-        for (let i = 0; i < todos_ls.length - 1; i++) {
-            if (idNewTodo < parseInt(todos_ls[i].id)) {
-                idNewTodo = parseInt(todos_ls[i].id) + 1;
-            }
-        };
-    
+        if (todos_ls.length == 0) {
+            idNewTodo = 0;
+        } else {
+            for (let i = 0; i < todos_ls.length; i++) {
+                if (idNewTodo <= parseInt(todos_ls[i].id)) {
+                    idNewTodo = parseInt(todos_ls[i].id) + 1;
+                }
+            };
+        }
+
         todos_ls.push({
             id: idNewTodo,
             text: input_value,

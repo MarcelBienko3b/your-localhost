@@ -89,7 +89,8 @@ body {
       display: flex;
       align-items: center;
       justify-content: space-evenly;
-      font-weight: 600;
+      font-size: 20px;
+      font-weight: 800;
 
       background-color: $secondary-bckg-clr--opacity;
 
@@ -402,6 +403,8 @@ body {
 
       padding: 0.5em;
 
+      overflow-y: scroll;
+
       &__status {
 
         width: 24%;
@@ -457,7 +460,14 @@ body {
         display: flex;
         justify-content: space-between;
         text-align: center;
+        transition: all 0.2s;
 
+        &:hover {
+
+          box-shadow: 2px 2px $tetriary-accent-clr;
+          cursor: pointer;
+
+        }
 
         &__close {
 

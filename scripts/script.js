@@ -434,7 +434,7 @@ function loadTodos() {
             localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
 
         });
-
+        
     });
 
 };
@@ -444,8 +444,7 @@ function createTodo() {
     const todo_div = document.createElement('div');
     const input_value = document.querySelector('.modal__input').value;
     const text = document.createTextNode(input_value);
-
-
+    
     todo_div.appendChild(text);
     todo_div.classList.add('status__todo');
     todo_div.classList.add('todo');
@@ -464,8 +463,6 @@ function createTodo() {
 
     todo_div.addEventListener('dragstart', dragStart);
     todo_div.addEventListener('dragend', dragEnd);
-
-    document.querySelector('.modal__input').innerText = '';
     
     if (input_value) {
 
@@ -490,6 +487,8 @@ function createTodo() {
         localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
     
     };
+    
+    document.querySelector('.modal__input').innerText = '';
 
 };
 

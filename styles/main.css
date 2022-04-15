@@ -47,7 +47,8 @@ body .navbar {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 800;
   background-color: rgba(128, 144, 191, 0.5647058824);
 }
 body .navbar__logo {
@@ -258,6 +259,7 @@ body .todoContainer {
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   padding: 0.5em;
+  overflow-y: scroll;
 }
 body .todoContainer__status {
   width: 24%;
@@ -296,6 +298,11 @@ body .todoContainer .todo {
   display: flex;
   justify-content: space-between;
   text-align: center;
+  transition: all 0.2s;
+}
+body .todoContainer .todo:hover {
+  box-shadow: 2px 2px #FF5F5F;
+  cursor: pointer;
 }
 body .todoContainer .todo__close {
   position: relative;
@@ -315,7 +322,7 @@ body .todoContainer .modal {
   top: -50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: top 0.3s ease-in-out;
+  transition: top 3s ease-in-out;
   border: 1px solid #212940;
   border-radius: 10px;
   z-index: 2;

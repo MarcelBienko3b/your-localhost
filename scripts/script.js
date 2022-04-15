@@ -177,7 +177,6 @@ function saveEvent() {
 
         };
         
-        console.log(idNewEvent);
         events.push({
             id: idNewEvent,
             date: clicked,
@@ -384,7 +383,10 @@ close_modals.forEach((btn) => {
 const submit = document.querySelector('.modal__submit');
 const no_status = document.querySelector('.todoContainer__status--noStatus');
 
-submit.addEventListener('click', createTodo);
+submit.addEventListener('click', () => {
+    createTodo();
+    document.querySelector('.modal__input').value = '';
+});
 
 function loadTodos() {
 
@@ -427,11 +429,11 @@ function loadTodos() {
             let tempText = JSON.stringify(todo_div.innerText);
             tempText = tempText.substring(1, tempText.length - 4);
             
-            console.log(todos_ls)
             todos_ls = todos_ls.filter((todo) => todo.text !== tempText);
-            console.log(todos_ls)
 
             localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
+
+            window.location.reload();
 
         });
         
@@ -487,8 +489,8 @@ function createTodo() {
         localStorage.setItem('todos_ls', JSON.stringify(todos_ls));
     
     };
-    
-    document.querySelector('.modal__input').innerText = '';
+
+    window.location.reload();
 
 };
 

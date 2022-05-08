@@ -94,7 +94,7 @@ body {
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: space-evenly;
+      justify-content: space-between;
       font-size: 20px;
       font-weight: 800;
 
@@ -109,8 +109,8 @@ body {
 
       &__nav {
 
-        display: block;
-        background-color: $main-bckg-clr;
+        display: flex;
+        justify-content: space-between;
         flex-basis: 20%;
         text-align: center;
         letter-spacing: 6px;
@@ -120,14 +120,31 @@ body {
         border-radius: 10px;
         transition: all 0.2s;
 
-        &:hover {
+        list-style-type: none;
+      
+      }
 
-          background-color: $tetriary-accent-clr;
-          color: $main-bckg-clr;
-          box-shadow: 4px 4px $main-bckg-clr;
+      .nav {
+
+        &__item {
+
+          text-decoration: none;
+          color: $secondary-font-clr;
+          transition: all 0.2s;
+
+          padding: 10px;
+          border-radius: 10px;
+
+          &:hover {
+
+            background-color: $tetriary-accent-clr;
+            color: $main-bckg-clr;
+            box-shadow: 4px 4px $main-bckg-clr;
+  
+          }
 
         }
-      
+
       }
 
     }
@@ -271,7 +288,8 @@ body {
       flex-wrap: wrap;
       margin: auto;
 
-      .newEventContainer, .deleteEventContainer {
+      .newEventContainer,
+      .deleteEventContainer {
 
         display: none;
         justify-content: space-between;

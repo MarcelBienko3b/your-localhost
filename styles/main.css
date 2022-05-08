@@ -49,7 +49,7 @@ body .navbar {
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   font-size: 20px;
   font-weight: 800;
   background-color: rgba(128, 144, 191, 0.5647058824);
@@ -59,8 +59,8 @@ body .navbar__logo {
   padding: 3px;
 }
 body .navbar__nav {
-  display: block;
-  background-color: #212940;
+  display: flex;
+  justify-content: space-between;
   flex-basis: 20%;
   text-align: center;
   letter-spacing: 6px;
@@ -69,8 +69,16 @@ body .navbar__nav {
   color: #FF5F5F;
   border-radius: 10px;
   transition: all 0.2s;
+  list-style-type: none;
 }
-body .navbar__nav:hover {
+body .navbar .nav__item {
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.2s;
+  padding: 10px;
+  border-radius: 10px;
+}
+body .navbar .nav__item:hover {
   background-color: #FF5F5F;
   color: #212940;
   box-shadow: 4px 4px #212940;
@@ -169,7 +177,8 @@ body .eventSection {
   flex-wrap: wrap;
   margin: auto;
 }
-body .eventSection .newEventContainer, body .eventSection .deleteEventContainer {
+body .eventSection .newEventContainer,
+body .eventSection .deleteEventContainer {
   display: none;
   justify-content: space-between;
   padding: 25px;
@@ -180,7 +189,8 @@ body .eventSection .newEventContainer, body .eventSection .deleteEventContainer 
   margin: 20px auto 20px auto;
   transition: all 0.2s;
 }
-body .eventSection .newEventContainer:hover, body .eventSection .deleteEventContainer:hover {
+body .eventSection .newEventContainer:hover,
+body .eventSection .deleteEventContainer:hover {
   box-shadow: 2px 2px #FF5F5F;
 }
 body .eventSection .newEventContainer {

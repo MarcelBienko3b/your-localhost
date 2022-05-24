@@ -315,7 +315,7 @@ body .todoContainer .todo {
   transition: all 0.2s;
 }
 body .todoContainer .todo:hover {
-  box-shadow: 2px 2px #FF5F5F;
+  box-shadow: 0 0 0 3px #FF5F5F;
   cursor: pointer;
 }
 body .todoContainer .todo__close {

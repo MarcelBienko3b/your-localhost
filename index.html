@@ -17,8 +17,6 @@
     </head>
 
     <body>
-        
-            <div id="top"></div>
 
             <div class="navbar">
 
@@ -27,9 +25,7 @@
                 </a>
 
                 <ul class="navbar__nav nav">
-                    <li><a href="#top" class="nav__item">Calendar</a></li>
-                    <li><a href="#todo" class="nav__item">To Do</a></li>
-                    <li><a href="#footer" class="nav__item">About</a></li>
+                    <li><a href="todos.html" class="nav__item">To Do</a></li>
                 </ul>
 
             </div>
@@ -94,55 +90,6 @@
 
             </div>
 
-            <div id="todo"></div>
-
-            <hr class="horizontalDivider horizontalDivider--lower">
-
-            <div class="todoContainer">
-
-                <div class="modal" id="todo_form">
-
-                    <div class="modal__header">
-
-                        <div class="modal__title">New ToDo</div>
-                        <button class="modal__close">&times;</button>
-
-                    </div>
-
-                    <div class="modal__body">
-                        <input type="text" class="modal__input">
-                        <input type="submit" value="Add Todo" class="modal__submit">
-                    </div>
-
-                </div>
-
-                <div class="todoContainer__status todoContainer__status--noStatus status">
-
-                    <h2 class="status__title">no status</h1>
-                    <button class="status__btn" data-target="#todo_form">+ Add Todo</button>
-
-                </div>
-
-                <div class="todoContainer__status todoContainer__status--notStarted status">
-
-                    <h2 class="status__title">not started</h1>
-
-                </div>
-
-                <div class="todoContainer__status todoContainer__status--inProgress status">
-
-                    <h2 class="status__title">in progress</h1>
-
-                </div>
-
-                <div class="todoContainer__status todoContainer__status--completed status">
-
-                    <h2 class="status__title">completed</h1>
-
-                </div>
-
-            </div>
-
             <footer class="footer" id="footer">
 
                 <div class="footer__logo">
@@ -159,7 +106,7 @@
 
             </footer>
 
-            <script src="scripts/script.js"></script>
+            <script src="scripts/calendar.js"></script>
 
     </body>
 

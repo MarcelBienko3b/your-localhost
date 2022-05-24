@@ -31,7 +31,7 @@ body .horizontalDivider {
   width: 90%;
   height: 2px;
   grid-area: hr;
-  background-color: #BF264F;
+  background-color: transparent;
   border: none;
 }
 body .horizontalDivider--upper {
@@ -60,7 +60,7 @@ body .navbar__logo {
 }
 body .navbar__nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   flex-basis: 20%;
   text-align: center;
   letter-spacing: 6px;
@@ -77,6 +77,7 @@ body .navbar .nav__item {
   transition: all 0.2s;
   padding: 10px;
   border-radius: 10px;
+  border: 2px solid #FF5F5F;
 }
 body .navbar .nav__item:hover {
   background-color: #FF5F5F;
@@ -87,6 +88,7 @@ body .container {
   flex-basis: 770px;
   margin: auto;
   min-width: 770px;
+  margin-bottom: 100px;
 }
 body .container .monthDisplay {
   padding: 10px;
@@ -144,8 +146,7 @@ body .container .calendar__day {
   transition: all 0.2s;
 }
 body .container .calendar__day:not(.calendar__day--padding):hover {
-  box-shadow: 3px 3px #FF5F5F;
-  text-shadow: 1px 1px 2px #FF5F5F;
+  box-shadow: 0 0 0 3px #FF5F5F;
 }
 body .container .calendar__day--padding {
   background-color: rgba(255, 252, 255, 0) !important;

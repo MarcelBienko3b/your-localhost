@@ -23,6 +23,7 @@ body {
   margin: auto;
   width: 90%;
   font-family: "Nunito";
+  height: 100vh;
   justify-content: left;
   background-color: #212940;
 }
@@ -63,7 +64,7 @@ body .navbar__nav {
   justify-content: flex-end;
   flex-basis: 20%;
   text-align: center;
-  letter-spacing: 6px;
+  letter-spacing: 4px;
   padding: 10px;
   text-decoration: none;
   color: #FF5F5F;
@@ -74,10 +75,10 @@ body .navbar__nav {
 body .navbar .nav__item {
   text-decoration: none;
   color: #fff;
+  background-color: #8090BF;
   transition: all 0.2s;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid #FF5F5F;
 }
 body .navbar .nav__item:hover {
   background-color: #FF5F5F;

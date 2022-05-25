@@ -56,6 +56,7 @@ body {
     margin: auto;
     width: 90%;
     font-family: $main-font;
+    height: 100vh;
 
     justify-content: left;
     background-color: $main-bckg-clr;
@@ -113,7 +114,7 @@ body {
         justify-content: flex-end;
         flex-basis: 20%;
         text-align: center;
-        letter-spacing: 6px;
+        letter-spacing: 4px;
         padding: 10px;
         text-decoration: none;
         color: $tetriary-accent-clr;
@@ -130,11 +131,11 @@ body {
 
           text-decoration: none;
           color: $secondary-font-clr;
+          background-color: $secondary-bckg-clr;
           transition: all 0.2s;
 
           padding: 10px;
           border-radius: 10px;
-          border: 2px solid $tetriary-accent-clr;
 
           &:hover {
 

@@ -402,6 +402,7 @@ body .footer {
   align-items: center;
   text-align: center;
   border-radius: 10px;
+  bottom: 0;
 }
 body .footer__logo {
   flex-basis: 33%;

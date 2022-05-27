@@ -24,7 +24,7 @@ function openDayWindow(date) {
         }
     }
 
-    if (newEventContainer.style.display === 'block') {
+    if (newEventContainer.style.opacity === '1') {
         removeAllChildWindows();
     }
 
@@ -54,13 +54,21 @@ function openDayWindow(date) {
             eventSection.appendChild(clonedEventContainer);
             clonedEventContainer.style.display = 'grid';
 
+            tempArr = document.querySelectorAll('.deleteEventContainer');
+            const tempDelEvent = tempArr[tempArr.length - 1];
+                
+            tempDelEvent.style.opacity = '1';
+            tempDelEvent.style.height = '60px';
+
         }
 
-        newEventContainer.style.display = 'block';
+        newEventContainer.style.opacity = '1';
+        newEventContainer.style.height = 'auto';
 
     } else {
 
-        newEventContainer.style.display = 'block';
+        newEventContainer.style.opacity = '1';
+        newEventContainer.style.height = 'auto';
 
     }
 
@@ -149,7 +157,9 @@ function loadCalendar() {
 function closeNewEventWindow() {
 
     eventTitleInput.classList.remove('error');
-    newEventContainer.style.display = 'none';
+    newEventContainer.style.opacity = '0';
+    newEventContainer.style.height = '0';
+    newEventContainer.style.overflow = 'hidden';
     deleteEventContainer.style.display = 'none';
     eventTitleInput.value = '';
     clicked = null;

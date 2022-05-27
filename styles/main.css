@@ -181,7 +181,6 @@ body .eventSection {
 }
 body .eventSection .newEventContainer,
 body .eventSection .deleteEventContainer {
-  display: none;
   justify-content: space-between;
   padding: 25px;
   background-color: #8090BF;
@@ -196,6 +195,9 @@ body .eventSection .deleteEventContainer:hover {
   box-shadow: 2px 2px #FF5F5F;
 }
 body .eventSection .newEventContainer {
+  opacity: 0;
+  height: 0;
+  transition: all 0.2s ease-in-out;
   flex-basis: 100%;
   max-width: 400px;
 }
@@ -236,6 +238,12 @@ body .eventSection .newEventContainer__button--cancel:hover {
   cursor: pointer;
 }
 body .eventSection .deleteEventContainer {
+  display: none;
+}
+body .eventSection .deleteEventContainer {
+  opacity: 0;
+  height: 0;
+  transition: all 0.2s ease-in-out;
   width: auto;
   height: 60px;
   padding: 0;
@@ -331,13 +339,15 @@ body .todoContainer .todo__close:hover {
   color: #FF5F5F;
 }
 body .todoContainer .modal {
-  display: none;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
   width: 450px;
   position: fixed;
   top: -50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  transition: top 3s ease-in-out;
   border: 1px solid #212940;
   border-radius: 10px;
   z-index: 2;
@@ -390,7 +400,8 @@ body .todoContainer .modal__close:hover {
   text-shadow: 0 0 2px #212940;
 }
 body .todoContainer .modal.active {
-  display: block;
+  opacity: 1;
+  height: auto;
   top: 20%;
 }
 body .footer {

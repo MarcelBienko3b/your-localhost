@@ -270,7 +270,7 @@ body .eventSection .deleteEventContainer__text {
   padding: 10px;
 }
 body .todoContainer {
-  margin: 40px auto;
+  margin: 40px 160px;
   flex-basis: 100%;
   height: 80vh;
   display: flex;
